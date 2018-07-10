@@ -8,6 +8,6 @@ describe('messages starting with @', () => {
     });
 
     it('Message without @', () => {
-        assert.equal(processMessage('hello'), 'hello');
+        assert.equal(processMessage(null), null);
     });
 });
