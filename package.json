@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "npm run test:mocha",
-    "test:mocha": "mocha test/parseMessage.test.js",
+    "test:mocha": "mocha test/ChatRoom.test.js",
     "start": "npm run test:mocha -- -w"
   },
   "repository": {

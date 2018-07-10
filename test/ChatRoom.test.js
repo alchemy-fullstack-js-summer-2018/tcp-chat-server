@@ -1,7 +1,7 @@
 const assert = require('assert');
 const ChatRoom = require('../lib/ChatRoom');
 
-describe('Chat room', () => {
+describe('Chatroom', () => {
     const c1 = {};
     const c2 = {};
     const c3 = {};
@@ -25,21 +25,31 @@ describe('Chat room', () => {
         assert.deepEqual(client, { username: 'user1' });
     });
 
+    it('removes a username', () => {
+        const removeStatus = chatRoom.remove('user2');
+        assert.equal(removeStatus, true);
+    });
+
     it('renames the user and does not return old client', () => {
-        let trueStatus = chatRoom.rename('user1', 'user76');
+        const trueStatus = chatRoom.rename('user1', 'user76');
+        const status = chatRoom.getClient('user1');
         assert.equal(c1.username, 'user76');
         assert.equal(trueStatus, true);
-        let status = chatRoom.getClient('user1');
         assert.equal(status, null);
     });
 
     it('returns false if same name', () => {
-        let status = chatRoom.rename('user76', 'user76');
+        const status = chatRoom.rename('user76', 'user76');
         assert.equal(status, false);
     });
 
     it('returns all clients as an array', () => {
-        let clients = chatRoom.all();
+        const clients = chatRoom.all();
         assert.deepEqual(clients, [c1, c2, c3]);
+    });
+
+    it('returns all clients except the one that called the function', () => {
+        const broadcastClients = chatRoom.getBroadcast(c1);
+        assert.deepEqual(broadcastClients, [c2, c3]);
     });
 });
