@@ -7,7 +7,7 @@ describe.only('ChatRoom', () => {
     const u2 = {};
     const u3 = {};
     let users = null;
-    
+
     beforeEach(() => {
         users = new ChatRoom();
         users.add(u1);
@@ -29,4 +29,8 @@ describe.only('ChatRoom', () => {
         assert.deepEqual(users.getClient(u1.username), u1);
     });
 
+    it('will not rename a user to an existing username', () => {
+        users.rename(u1.username, 'anonymous2');
+        assert.deepEqual(u1.username, 'anonymous1');
+    });
 });
