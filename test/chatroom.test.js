@@ -30,6 +30,11 @@ describe('Chat Room takes a socket, assigns random user name, and stores by user
         const user1 = clients.getClient('user1');
         assert.equal(user1, c1);
     });
+
+    it('gives back list of clients (minus sender)', () => {
+        const broadcast = clients.getBroadcastClients(c1);
+        
+    });
 });
 
 describe('Chat Room Instance renames a user', () => {
