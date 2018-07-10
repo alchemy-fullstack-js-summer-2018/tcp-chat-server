@@ -26,6 +26,11 @@ describe('ChatRoom', () => {
         assert.deepEqual(clients.getAll(), [c1, c2, c3]);
     });
 
+    it('renames a user', () => {
+        clients.rename(c1.username, 'NewNameUser');
+        assert.deepEqual(clients.getClient(c1.username), c1);
+    });
+
    
 
 
