@@ -1,17 +1,17 @@
 const assert = require('assert');
-const Clients = require('../lib/clients');
+const Chatroom = require('../lib/chatroom');
 
-describe('Clients', () => {
+describe('Chatroom', () => {
 
     const c1 = {};
     const c2 = {};
     const c3 = {};
-    let clients = null;
+    let chatroom = null;
     beforeEach(() => {
-        clients = new Clients();
-        clients.add(c1);
-        clients.add(c2);
-        clients.add(c3);
+        chatroom = new Chatroom();
+        chatroom.add(c1);
+        chatroom.add(c2);
+        chatroom.add(c3);
     });
 
     it('assigns names', () => {
@@ -21,32 +21,35 @@ describe('Clients', () => {
     });
 
     it('gets a client', () => {
-        const thisClient = clients.getClient(c2.userName);
+        const thisClient = chatroom.getClient(c2.userName);
         assert.deepEqual(thisClient, c2);
     });
 
     it('gets all the clients', () => {
-        const allClients = clients.all();
+        const allClients = chatroom.all();
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
 
     it('sends messages to everyone but self', () => {
-        const allButSelf = clients.getBroadcastClients(c2);
+        const allButSelf = chatroom.getBroadcastClients(c2);
         assert.deepEqual(allButSelf, [c1, c3]);
     });
 
     it('removes clients', () => {
-        const oneFewerClient = clients.remove('user3');
+        const oneFewerClient = chatroom.remove('user3');
         assert.equal(oneFewerClient, true);
     });
 
     describe('renaming functionality', () => {
 
         it('changes the username of a client', () => {
-            clients.rename('user1', 'Bobby');
-            console.log(c1);
-            console.log(clients);
+            chatroom.rename('user1', 'Bobby');
             assert.equal(c1.userName, 'Bobby');
+        });
+        
+        it('does not let you call old user anymore', () => {
+            chatroom.rename('user1', 'Bobby');
+            assert.equal(chatroom.getClient(c1), undefined);
         });
 
     });
