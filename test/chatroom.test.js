@@ -43,8 +43,8 @@ describe('Chatroom', () => {
     describe('renaming functionality', () => {
 
         it('changes the username of a client', () => {
-            chatroom.rename('user1', 'Bobby');
-            assert.equal(c1.userName, 'Bobby');
+            let rename = chatroom.rename('user1', 'Bobby');
+            assert.equal(rename, true);
         });
         
         it('does not let you call old user anymore', () => {
@@ -52,5 +52,10 @@ describe('Chatroom', () => {
             assert.equal(chatroom.getClient(c1), undefined);
         });
 
+        it('does let you call by the new username', () => {
+            chatroom.rename('user1', 'Bobby');
+            assert.equal(chatroom.getClient('Bobby'), c1);
+        });
+        
     });
 });
