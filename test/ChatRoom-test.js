@@ -23,7 +23,7 @@ describe('ChatRoom', () => {
     });
 
     it('returns list of all clients', () => {
-        assert.deepEqual(clients.all(), [c1, c2, c3]);
+        assert.deepEqual(clients.getAll(), [c1.username, c2.username, c3.username]);
     });
 
 });
