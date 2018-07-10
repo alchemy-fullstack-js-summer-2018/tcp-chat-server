@@ -1,5 +1,5 @@
 const assert = require('assert');
-const parseMessage = require('../lib/parseMessage');
+const parseMessage = require('../lib/ParseMessageTemp');
 
 describe('parse message', () => {
     
