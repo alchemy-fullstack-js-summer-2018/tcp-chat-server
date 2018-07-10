@@ -24,4 +24,12 @@ describe('Clients', () => {
         const gotClient = clients.get('user1');
         assert.equal(gotClient, c1);
     });
+
+    it('renames username to newusername', () => {
+        const newUsername = clients.rename(c1.username, 'carmen');
+        assert.equal(newUsername, true);
+        const gotClient = clients.get('user1');
+        assert.notEqual(gotClient, 'user1');
+        assert.equal(gotClient, 'carmen');
+    });
 });
