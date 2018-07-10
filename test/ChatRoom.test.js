@@ -33,4 +33,8 @@ describe.only('ChatRoom', () => {
         users.rename(u1.username, 'anonymous2');
         assert.deepEqual(u1.username, 'anonymous1');
     });
+
+    it('returns all sockets', () => {
+        assert.deepEqual(users.all(), [u1, u2, u3]);
+    });
 });
