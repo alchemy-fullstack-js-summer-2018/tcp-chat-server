@@ -8,6 +8,7 @@ describe('parseMessage function', () => {
         assert.equal(badStatus, null);
         // assert.equal(goodStatus, 1);
     });
+    
     it('returns a command object with correct properties', () => {
         const command = parseMessage('@cmd:param some text');
         assert.deepEqual(command, { command: 'cmd', arg: 'param', text: 'some text' });
