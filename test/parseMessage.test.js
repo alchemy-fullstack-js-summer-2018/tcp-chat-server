@@ -8,14 +8,18 @@ describe('parse message', () => {
         assert.equal(parseMessage(input), null);
     });
 
+    it('returns null if input is not a recognized command', () => {
+        const input = '@destroy everyone';
+        assert.equal(parseMessage(input), null);
+    });
+
     it('properly parses @all command', () => {
         const input = '@all love letter, anyone?';
         const expected = {
             command: 'all',
-            arg: null,
             text: 'love letter, anyone?'
         };
-        assert.equal(parseMessage(input), expected);
+        assert.deepEqual(parseMessage(input), expected);
     });
 
     it('properly parses @nick command', () => {
@@ -23,9 +27,8 @@ describe('parse message', () => {
         const expected = {
             command: 'nick',
             arg: 'arthur',
-            text: null
         };
-        assert.equal(parseMessage(input), expected);
+        assert.deepEqual(parseMessage(input), expected);
     });
 
     it('properly parses @dm command', () => {
@@ -35,6 +38,6 @@ describe('parse message', () => {
             arg: 'easton',
             text: 'get sniped, BITCH'
         };
-        assert.equal(parseMessage(input), expected);
+        assert.deepEqual(parseMessage(input), expected);
     });
 });
