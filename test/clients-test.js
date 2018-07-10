@@ -19,4 +19,9 @@ describe('Clients', () => {
         assert.equal(c2.username, 'user2');
         assert.equal(c3.username, 'user3');
     });
+
+    it('gets username', () => {
+        const gotClient = clients.get('user1');
+        assert.equal(gotClient, c1);
+    });
 });
