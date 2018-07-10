@@ -16,11 +16,9 @@ describe.only('ChatRoom', () => {
     });
 
     it('assigns generic username to a socket and stores by user name', () => {
-        
         assert.equal(u1.username, 'anonymous1');
         assert.equal(u2.username, 'anonymous2');
         assert.equal(u3.username, 'anonymous3');
-
         assert.deepEqual(users.getClient(u1.username), u1);
     });
 
@@ -36,5 +34,9 @@ describe.only('ChatRoom', () => {
 
     it('returns all sockets', () => {
         assert.deepEqual(users.all(), [u1, u2, u3]);
+    });
+
+    it('removes users', () => {
+        assert.ok(users.remove('anonymous1'));
     });
 });
