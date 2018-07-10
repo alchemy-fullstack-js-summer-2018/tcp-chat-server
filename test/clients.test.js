@@ -1,5 +1,6 @@
 const assert = require('assert');
 const ChatRoom = require('../lib/chatRoom');
+const processMessage = require('../lib/processMessage');
 
 describe('Chatroom clients', () => {
     let chatRoom = null;
@@ -47,4 +48,22 @@ describe('Chatroom clients', () => {
         assert.deepEqual(result, [c1, c2, c3]);
     });
 
+});
+
+describe('parse message', () => {
+    const fail = 'hello there!';
+    const success = '@all hello there!';
+    const expected = {
+        command: 'all',
+        arg: undefined,
+        text: 'hello there!'
+    };
+
+    it('returns null if @ is not first character', () => {
+        assert.equal(processMessage(fail), null);
+    });
+    
+    it('returns object', () => {
+        assert.deepEqual(processMessage(success), expected); 
+    });
 });
