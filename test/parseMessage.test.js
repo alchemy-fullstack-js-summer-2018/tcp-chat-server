@@ -36,6 +36,4 @@ describe('parsing messages', () => {
     it('returns command object with dm, some_user and text', () => {
         assert.deepEqual(parseMessage(privateMessage), dmCommand);
     });
-
-
 });
