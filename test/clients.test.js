@@ -37,8 +37,17 @@ describe('Clients', () => {
 
     it('removes clients', () => {
         const oneFewerClient = clients.remove('user3');
-        console.log(clients);
         assert.equal(oneFewerClient, true);
     });
 
+    describe('renaming functionality', () => {
+
+        it('changes the username of a client', () => {
+            clients.rename('user1', 'Bobby');
+            console.log(c1);
+            console.log(clients);
+            assert.equal(c1.userName, 'Bobby');
+        });
+
+    });
 });
