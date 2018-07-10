@@ -10,10 +10,12 @@ describe('parse message', () => {
 
     it('handles the rename command @nick', () => {
         const command = '@nick NewUserName';
+        const parsed = parseMessage(command);
+        console.log(parsed);
         const expected = {
             command: '@nick',
             arg: 'NewUserName',
         };
-        assert.deepEqual(parseMessage(command), expected);
+        assert.deepEqual(parsed, expected);
     });
 });
