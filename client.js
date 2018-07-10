@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 const socket = net.connect(15678, () => {
     rl.setPrompt('');
     rl.prompt();
-
+    console.log('Welcome to hell');
     rl.on('line', input => {
         socket.write(input);
     });
