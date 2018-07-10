@@ -10,7 +10,6 @@ describe.only('Charades', () => {
 
     it('starts game', () => {
         charades.start(player);
-        assert.ok(charades.gameInProgress);
         assert.ok(charades.actor);
         assert.ok(charades.secretWord);
     });
