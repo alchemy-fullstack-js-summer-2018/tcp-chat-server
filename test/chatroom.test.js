@@ -51,7 +51,7 @@ describe('Chat Room Instance renames a user', () => {
         clients.add(c3);
     });
     
-    it.only('calling rename returns true', () => {
+    it.skip('calling rename returns true', () => {
         const result = clients.rename();
         assert.equal(result, true);
     });
