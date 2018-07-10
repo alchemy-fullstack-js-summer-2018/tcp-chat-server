@@ -71,4 +71,10 @@ describe('Chatroom', () => {
         });
         
     });
+
+    describe('message and command parsing functionality', () => {
+        it('returns null if first character is not @', () => {
+            
+        })
+    })
 });
