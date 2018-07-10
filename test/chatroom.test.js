@@ -32,3 +32,22 @@ describe('Chat Room takes a socket, assigns random user name, and stores by user
     });
 });
 
+describe('Chat Room Instance renames a user', () => {
+    
+    const c1 = {};
+    const c2 = {};
+    const c3 = {};
+    let clients = null;
+
+    beforeEach(() => {
+        clients = new ChatRoom();
+        clients.add(c1);
+        clients.add(c2);
+        clients.add(c3);
+    });
+    
+    it.only('calling rename returns true', () => {
+        const result = clients.rename(username, newusername);
+        assert.equal(result, true);
+    });
+});
