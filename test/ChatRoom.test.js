@@ -37,4 +37,9 @@ describe('Chat room', () => {
         let status = chatRoom.rename('user76', 'user76');
         assert.equal(status, false);
     });
+
+    it('returns all clients as an array', () => {
+        let clients = chatRoom.all();
+        assert.deepEqual(clients, [c1, c2, c3]);
+    });
 });
