@@ -19,8 +19,9 @@ describe('Chat room', () => {
         assert.equal(c2.username, 'user2');
         assert.equal(c3.username, 'user3');
     });
+
     it('gets the username', () => {
-        let client = chatRoom.getClient('user1');
-        assert.equal(client, 'username');
+        const client = chatRoom.getClient('user1');
+        assert.deepEqual(client, { username: 'user1' });
     });
 });
