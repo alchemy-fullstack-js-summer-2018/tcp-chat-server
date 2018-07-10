@@ -1,5 +1,5 @@
 {
-  "name": "TCP chat server",
+  "name": "tcp_chat_server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
