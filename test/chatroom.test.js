@@ -1,7 +1,7 @@
 const assert = require('assert');
 const ChatRoom = require('../lib/chatroom');
 
-describe('Chat Room', () => {
+describe('Chat Room takes a socket, assigns random user name, and stores by user name', () => {
 
     const c1 = {};
     const c2 = {};
@@ -27,6 +27,8 @@ describe('Chat Room', () => {
     });
 
     it('returns unique username for each client', () => {
-
+        const user1 = clients.getClient('user1');
+        assert.equal(user1, c1);
     });
 });
+
