@@ -16,13 +16,12 @@ describe('ChatRoom', () => {
     });
 
     it('assigns generic username to a socket and stores by user name', () => {
-        
         assert.deepEqual(users.getClient(u1.username), u1);
     });
 
     it('renames a user', () => {
         users.rename(u1.username, 'arthur');
-        assert.deepEqual(users.getClient(u1.username), u1);
+        assert.deepEqual(users.getClient('arthur').username, 'arthur');
     });
 
     it('will not rename a user to an existing username', () => {
