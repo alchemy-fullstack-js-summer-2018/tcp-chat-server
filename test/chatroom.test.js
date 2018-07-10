@@ -22,7 +22,7 @@ describe('Chat Room', () => {
     });
 
     it('adds usernames to client object', () => {
-        const allClients = clients.getAllClients;
+        const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
 });
