@@ -35,4 +35,10 @@ describe('Clients', () => {
         assert.deepEqual(broadcast, [c2, c3]);
     });
 
+    // dm test in progress:
+    // it('gives back client to broadcast direct message (not sender)', () => {
+    //     const broadcast = clients.getBroadcastDMClient(c1);
+    //     assert.deepEqual(broadcast, [c2]);
+    // });
+
 });
