@@ -24,5 +24,15 @@ describe('message and command parsing functionality', () => {
         };
         assert.deepEqual(renameMessage, sampleObj);
     });
+
+    it('brings back a command object for sending a private message', () => {
+        let privateMessage = parseMessage('@dm:Arthur what up playboy');
+        const sampleObj = {
+            command: 'dm:',
+            arg: 'Arthur',
+            text: ' what up playboy'
+        };
+        assert.deepEqual(privateMessage, sampleObj);
+    })
     
 });
