@@ -25,4 +25,8 @@ describe('Chat Room', () => {
         const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
+
+    it('returns unique username for each client', () => {
+
+    });
 });
