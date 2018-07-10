@@ -50,7 +50,7 @@ describe('Chatroom clients', () => {
 
 });
 
-describe('parse message', () => {
+describe('process message', () => {
     const fail = 'hello there!';
     const success = '@all hello there!';
     const expected = {
