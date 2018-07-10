@@ -46,6 +46,11 @@ describe('Chatroom', () => {
             let rename = chatroom.rename('user1', 'Bobby');
             assert.equal(rename, true);
         });
+
+        it('changes the username in the client object and the key', () => {
+            chatroom.rename('user1', 'Bobby');
+            assert.equal(c1.userName, 'Bobby');
+        });
         
         it('does not let you call old user anymore', () => {
             chatroom.rename('user1', 'Bobby');
@@ -55,6 +60,14 @@ describe('Chatroom', () => {
         it('does let you call by the new username', () => {
             chatroom.rename('user1', 'Bobby');
             assert.equal(chatroom.getClient('Bobby'), c1);
+        });
+
+        it('returns false when you try to change name to something already taken, can call by new and older names', () => {
+            chatroom.rename('user1', 'Bobby');
+            let falseUser = chatroom.rename('user2', 'Bobby');
+            assert.equal(falseUser, false);
+            assert.equal(c1, chatroom.getClient('Bobby'));
+            assert.equal(c2, chatroom.getClient('user2'));
         });
         
     });
