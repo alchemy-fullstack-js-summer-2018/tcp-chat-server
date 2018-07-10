@@ -1,0 +1,32 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "## Project Description A TCP Chat server that allows clients to connect and chat",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "npm run test:mocha",
+    "test:mocha": "mocha",
+    "test:dev": "npm run test:mocha -- -w",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariahAdams/tcp-chat-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariahAdams/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/MariahAdams/tcp-chat-server#readme",
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "mocha": "^5.2.0"
+  }
+}
