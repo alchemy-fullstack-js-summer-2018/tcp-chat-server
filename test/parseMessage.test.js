@@ -40,4 +40,12 @@ describe('parse message', () => {
         };
         assert.deepEqual(parseMessage(input), expected);
     });
+
+    it('properly parses @game command', () => {
+        const input = '@game';
+        const expected = {
+            command: 'game'
+        };
+        assert.deepEqual(parseMessage(input), expected);
+    });
 });

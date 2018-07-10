@@ -1,7 +1,7 @@
 const assert = require('assert');
 const ChatRoom = require('../lib/ChatRoom');
 
-describe.only('ChatRoom', () => {
+describe('ChatRoom', () => {
 
     const u1 = {};
     const u2 = {};
@@ -16,9 +16,7 @@ describe.only('ChatRoom', () => {
     });
 
     it('assigns generic username to a socket and stores by user name', () => {
-        assert.equal(u1.username, 'anonymous1');
-        assert.equal(u2.username, 'anonymous2');
-        assert.equal(u3.username, 'anonymous3');
+        
         assert.deepEqual(users.getClient(u1.username), u1);
     });
 
@@ -28,8 +26,8 @@ describe.only('ChatRoom', () => {
     });
 
     it('will not rename a user to an existing username', () => {
-        users.rename(u1.username, 'anonymous2');
-        assert.deepEqual(u1.username, 'anonymous1');
+        users.rename(u1.username, u2.username);
+        assert.notEqual(u1.username, u2.username);
     });
 
     it('returns all sockets', () => {
@@ -37,6 +35,6 @@ describe.only('ChatRoom', () => {
     });
 
     it('removes users', () => {
-        assert.ok(users.remove('anonymous1'));
+        assert.ok(users.remove(u1.username));
     });
 });
