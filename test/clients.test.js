@@ -15,10 +15,16 @@ describe('the clients', () => {
 
     });
 
-    it('Assign names', () => {
+    it('Assigning names', () => {
         assert.equal(c1.username, 'user1');
         assert.equal(c1.username, 'user1');
         assert.equal(c1.username, 'user1');
+    });
+
+    it('Storing clients', () => {
+        const allClients = clients.getAllClients();
+        assert.deepEqual(allClients, [c1, c2, c3]);
+
     });
 
 });
