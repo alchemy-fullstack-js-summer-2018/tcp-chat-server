@@ -33,6 +33,6 @@ describe('message and command parsing functionality', () => {
             text: ' what up playboy'
         };
         assert.deepEqual(privateMessage, sampleObj);
-    })
+    });
     
 });
