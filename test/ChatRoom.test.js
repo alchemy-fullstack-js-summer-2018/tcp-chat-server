@@ -24,4 +24,20 @@ describe('Chat room', () => {
         const client = chatRoom.getClient('user1');
         assert.deepEqual(client, { username: 'user1' });
     });
+
+    it('renames the user', () => {
+        let trueStatus = chatRoom.rename('user1', 'user76');
+        assert.equal(c1.username, 'user76');
+        assert.equal(trueStatus, true);
+    });
+
+    it.skip('does not return client when using old username', () => {
+        let status = chatRoom.getClient('user1');
+        assert.equal(status, null);
+    });
+
+    it('returns false if same name', () => {
+        let status = chatRoom.rename('user76', 'user76');
+        assert.equal(status, false);
+    });
 });
