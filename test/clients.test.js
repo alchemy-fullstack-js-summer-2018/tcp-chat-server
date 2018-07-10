@@ -21,13 +21,17 @@ describe('the clients', () => {
         assert.equal(c1.username, 'user1');
     });
 
-    it.skip('Renaiming users', () => {
+    it.skip('Renaming users', () => {
 
     });
 
     it('Storing clients', () => {
         const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c1, c2, c3]);
+
+    });
+
+    it.skip('Getting one client', () => {
 
     });
 
