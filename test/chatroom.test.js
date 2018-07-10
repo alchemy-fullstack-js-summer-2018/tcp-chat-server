@@ -33,7 +33,7 @@ describe('Chat Room takes a socket, assigns random user name, and stores by user
 
     it('gives back list of clients (minus sender)', () => {
         const broadcast = clients.getBroadcastClients(c1);
-        
+        assert.deepEqual(broadcast, [c2, c3]);
     });
 });
 
