@@ -30,9 +30,15 @@ describe('Clients', () => {
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
 
-    // it('removes clients', () => {
-    //     clients.remove(c2);
-    //     const 
-    // })
+    it('sends messages to everyone but self', () => {
+        const allButSelf = clients.getBroadcastClients(c2);
+        assert.deepEqual(allButSelf, [c1, c3]);
+    });
+
+    it('removes clients', () => {
+        const oneFewerClient = clients.remove('user3');
+        console.log(clients);
+        assert.equal(oneFewerClient, true);
+    });
 
 });
