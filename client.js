@@ -15,7 +15,7 @@ const socket = net.connect(15678, () => {
     });
 
     socket.on('data', data => {
-        console.log('server reporting back with', data);
+        console.log('server reporting back: ', data);
     });
 
     socket.on('close', () => {

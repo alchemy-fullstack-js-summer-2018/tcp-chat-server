@@ -15,7 +15,9 @@ describe('Clients', () => {
     });
     
     it('returns a name as the username property', () => {
-
+        assert.equal(c1.username, 'user1');
+        assert.equal(c2.username, 'user2');
+        assert.equal(c3.username, 'user3');
     });
 
     it('assigns the username as a property of the client object', () => {
