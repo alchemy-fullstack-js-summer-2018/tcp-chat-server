@@ -1,0 +1,31 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test:run": "mocha",
+    "test": "npm run test:run",
+    "test:dev": "npm run test:run -- -w",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grayson073/tcp-chat-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grayson073/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/grayson073/tcp-chat-server#readme",
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "mocha": "^5.2.0"
+  }
+}
