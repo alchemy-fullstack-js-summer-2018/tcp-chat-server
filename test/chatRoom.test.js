@@ -2,13 +2,16 @@ const assert = require('assert');
 const ChatRoom = require('../lib/ChatRoom');
 
 describe('ChatRoom management', () => {
-    let testUser = null;
+    let testUser = {};
+    let testUser2 = {};
+    let testUser3 = {};
     let chatRoom = null;
 
     beforeEach('creates new chatRoom', () => {
-        testUser = {};
         chatRoom = new ChatRoom();
         chatRoom.add(testUser);
+        chatRoom.add(testUser2);
+        chatRoom.add(testUser3);
     });
 
     it('takes a socket, assigns random user name, and stores by user name', () => {
@@ -27,6 +30,11 @@ describe('ChatRoom management', () => {
         assert.deepEqual(chatRoom.getClient('user1'), null);
     });
 
+    it('fails to rename to an already existing name', () => {
+        chatRoom.rename(testUser2.userName, testUser3.userName);
+        assert.notEqual(testUser2.userName, testUser3.userName);
+
+    });
 
 
 
