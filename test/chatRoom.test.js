@@ -33,7 +33,10 @@ describe('ChatRoom management', () => {
     it('fails to rename to an already existing name', () => {
         chatRoom.rename(testUser2.userName, testUser3.userName);
         assert.notEqual(testUser2.userName, testUser3.userName);
+    });
 
+    it('gets all users!', () => {
+        assert.deepEqual(chatRoom.getAllClients(), [testUser, testUser2, testUser3]);
     });
 
 
