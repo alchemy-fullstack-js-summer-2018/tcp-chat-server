@@ -1,0 +1,27 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "echo running",
+    "test": "mocha",
+    "test:mocha": "mocha",
+    "start": "npm run test:mocha -- -w"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "mocha": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robinhood182/tcp-chat-server.git"
+  },
+  "author": "Robyn Navarro <rnavarro182@gmail.com> (https://github.com/robinhood182)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robinhood182/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/robinhood182/tcp-chat-server#readme"
+}
