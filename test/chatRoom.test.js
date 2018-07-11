@@ -20,4 +20,14 @@ describe('ChatRoom management', () => {
         const gottenUser = chatRoom.getClient('user1');
         assert.deepEqual(gottenUser, testUser);
     });
+    
+    it('rename method', () => {
+        chatRoom.rename('user1', 'userX');
+        assert.deepEqual(chatRoom.getClient('userX').userName, 'userX');
+        assert.deepEqual(chatRoom.getClient('user1'), null);
+    });
+
+
+
+
 });
