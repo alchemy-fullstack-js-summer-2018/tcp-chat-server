@@ -23,14 +23,15 @@ describe('the clients', () => {
     });
 
     it('Confirms assigned user name', () => {
-        const client = clients.getClient(c1.username);
-        assert.equal(client, c1);
+        const client = clients.getClient(c1);
+        assert.deepEqual(client, c1);
     });
 
     it('Renaming a user with new name', () => {
-        const client = c1.username;
+        const client = c1;
         const newName = '2much';
         const newUserName = clients.rename(client, newName);
+        console.log(newUserName, newName);
         assert.equal(newUserName, true);
         assert.ok(clients.getClient(newName));
     });
