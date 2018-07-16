@@ -37,14 +37,19 @@ describe('Clients', () => {
         const broadcast = clients.getBroadcastClients(c1);
         assert.deepEqual(broadcast, [c2, c3]);
     });
+    it('gets object of assigned username', () => {
+        const result = clients.getClient(c2.username);
+        assert.deepEqual(result, c2);
+    });
 
-    // it('sends a DM (message) to another user)', () => {
-    //     const DM = {}; 
-    //     const userDM = clients.directMessage(message);
-    //     if(message !== )
+    it('renames a user', () => {
+        clients.rename(c1.username, 'Chris');
+        const result = clients.getClient(c1.username);
+        assert.deepEqual(result, c1);
+    });
 
-
-    // });
-
-
+    // it('Won\'t use an existing name'), () => {
+    //     clients.rename(c1.username, 'User#2');
+    //     assert.deepEqual(c1.username, 'User#1');
+    // };
 });
