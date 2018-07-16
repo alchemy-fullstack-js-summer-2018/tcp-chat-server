@@ -1,12 +1,12 @@
 const assert = require('assert');
-const Clients = require('../lib/clients');
+const Clients = require('../lib/chatRoom');
 
 describe('the clients', () => {
-
+    let clients = null;
     const c1 = {};
     const c2 = {};
     const c3 = {};
-    let clients = null;
+    
 
     beforeEach(() => {
         clients = new Clients();
@@ -22,8 +22,17 @@ describe('the clients', () => {
         assert.equal(c1.username, 'user1');
     });
 
-    it.skip('Renaming users', () => {
+    it('Confirms assigned user name', () => {
+        const client = clients.getClient(c1.username);
+        assert.equal(client, c1);
+    });
 
+    it('Renaming a user with new name', () => {
+        const client = c1.username;
+        const newName = '2much';
+        const newUserName = clients.rename(client, newName);
+        assert.equal(newUserName, true);
+        assert.ok(clients.getClient(newName));
     });
 
     it('Storing clients', () => {
