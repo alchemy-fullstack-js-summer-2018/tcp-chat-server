@@ -31,7 +31,6 @@ describe('the clients', () => {
         const client = c1;
         const newName = '2much';
         const newUserName = clients.rename(client, newName);
-        console.log(newUserName, newName);
         assert.equal(newUserName, true);
         assert.ok(clients.getClient(newName));
     });

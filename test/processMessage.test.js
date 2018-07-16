@@ -1,21 +1,26 @@
 const assert = require('assert');
 const processMessage = require('../lib/processMessage');
 
-describe('messages starting with @', () => {
+describe('messages in chatRoom', () => {
+    const invalid = 'hello';
+    const valid = '@hello';
+    const expected = {
+        command: 'all',
+        arg: undefined,
+        text: 'hello'
+    };
 
-    it('Message with @', () => {
-        assert.equal(processMessage('@hello'), 'HELLO');
+    it('Message starts with @', () => {
+        console.log('this', processMessage(valid));
+        assert.equal(processMessage(expected), 'h e l l o');
     });
 
-    it('Message without @', () => {
-        assert.equal(processMessage(null), null);
+    it('Message does not start with @', () => {
+        assert.equal(processMessage(invalid), null);
     });
 
-    it.skip('Message returns as an object', () => {
-        assert.equal(processMessage('@cmd:param some text'),  { 
-            command: 'cmd',
-            arg: 'param',
-            text: 'some text'
-        });
+    it('expected', () => {
+        console.log(expected);
     });
+    
 });
