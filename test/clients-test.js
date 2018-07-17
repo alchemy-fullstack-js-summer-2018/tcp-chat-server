@@ -1,11 +1,13 @@
 const assert = require('assert');
 const Clients = require('../lib/clients');
+//const processMessage = require('../lib/processMessage');
 
 describe('Clients', () => {
     const c1 = {};
     const c2 = {};
     const c3 = {};
     let clients = null;
+
     beforeEach(() => {
         clients = new Clients();
         clients.add(c1);
@@ -34,11 +36,14 @@ describe('Clients', () => {
         const broadcast = clients.getBroadcastClients(c1);
         assert.deepEqual(broadcast, [c2, c3]);
     });
-
-    // dm test in progress:
-    // it('gives back client to broadcast direct message (not sender)', () => {
-    //     const broadcast = clients.getBroadcastDMClient(c1);
-    //     assert.deepEqual(broadcast, [c2]);
-    // });
-
 });
+//CAN'T FIGURE OUT THE RENAME
+// it('renames client', () => {
+//     clients.rename(c1.username, 'Beverly');
+//     const result = clients.getClient(c1.username);
+//     assert.deepEqual(result, c1);   
+// });  
+// it('gets one client', () => {
+//     const client = clients.getClient(c1);
+//     assert.equal(client, c1);
+// });  
