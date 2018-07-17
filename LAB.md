@@ -83,17 +83,17 @@ A class that tracks clients (users) in the chat room
     return [...this.clients.values()];
     ```
 
-### `parseMessage`
+### `processMessage`
 
 A synchronous function that takes a string message and returns a command object 
 (what is the command and any parameters) based on the contents of the message.
 
 1. Test that it 'ignores strings that do not start with @'
     * Test that `null` is returned when passed a string that does not start with "@"
-2. Test that a string like `'@cmd:param some text'` returns an object like:
+2. Test that a string like `'@command:param some text'` returns an object like:
     ```js
     { 
-        command: 'cmd',
+        command: 'command',
         arg: 'param',
         text: 'some text'
     }
@@ -126,6 +126,6 @@ with the port number
 ## Rubric **10pts**
 
 * Manage clients (`ChatRoom`) and tests **3pts**
-* Parse Messages (`parseMessage`) and tests **3pts**
+* Parse Messages (`processMessage`) and tests **3pts**
 * Server App and Listen (`app.js` and `server.js`) **3pts**
 * Project Organization and Clean Code **1pts**
