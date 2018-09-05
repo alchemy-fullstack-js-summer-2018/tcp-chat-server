@@ -1,7 +1,7 @@
 const assert = require('assert');
 const Clients = require('../lib/clients');
 
-describe('Clients', () => {
+describe.skip('Clients', () => {
 
     const c1 = {};
     const c2 = {};
